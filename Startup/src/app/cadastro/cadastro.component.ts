@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 export class CadastroComponent implements OnInit {
   formData!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.formData = this.formBuilder.group(
@@ -25,11 +26,10 @@ export class CadastroComponent implements OnInit {
 
   submitForm() {
     if (this.formData.valid) {
-      // Realizar ações com os dados do formulário, como enviar para um servidor
       console.log(this.formData.value);
       this.formData.reset();
+      this.router.navigate(['/login']); // Redirecionar para a página desejada
     } else {
-      // Exibir mensagens de erro ou realizar ações específicas para formulário inválido
       console.log('Formulário inválido. Verifique os campos.');
     }
   }
