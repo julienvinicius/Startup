@@ -1,2 +1,6 @@
-<app-product-list></app-product-list>
-<app-cadastro></app-cadastro>
+
+<div [ngClass]="{ 'hide-nav-bar': !exibirNavBar }">
+    <app-nav-bar></app-nav-bar>
+    <router-outlet><app-cadastro-page></app-cadastro-page></router-outlet>
+  </div>
+  
