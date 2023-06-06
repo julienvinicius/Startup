@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Startup';
-  exibirNavBar = true;
+  exibirNav: boolean = true;
+
+  realizarLogin() {
+    this.exibirNav = false;
+  }
+
+  realizarLogout() {
+    this.exibirNav = true;
+  }
 }

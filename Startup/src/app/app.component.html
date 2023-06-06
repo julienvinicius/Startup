@@ -1,6 +1,1 @@
-
-<div [ngClass]="{ 'hide-nav-bar': !exibirNavBar }">
-    <app-nav-bar></app-nav-bar>
-    <router-outlet><app-cadastro-page></app-cadastro-page></router-outlet>
-  </div>
-  
+<app-nav (exibirFormLogin)="realizarLogin()"></app-nav>

@@ -1,0 +1,13 @@
+<nav class="nav-container" *ngIf="exibirNav">
+  <div class="logo-container">
+    <img src="{{ logoPath }}" alt="Logo">
+  </div>
+  <div class="filter-container">
+    <input type="text" placeholder="Digite o filtro" [(ngModel)]="filtro">
+  </div>
+  <div class="login-container">
+    <a href="#" (click)="onRealizarLogin()">Login</a>
+    <a href="#" (click)="onRealizarLogout()">Registrar</a>
+    <a></a>
+  </div>
+</nav>

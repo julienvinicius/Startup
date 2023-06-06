@@ -1,0 +1,52 @@
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  z-index: 999;
+
+  .logo-container {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 20px; /* Aumentei o valor do margin-right para mover a logo para a direita */
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .filter-container {
+    flex: 1;
+    margin: 0 20px; /* Ajuste o valor do margin para definir o espaçamento desejado */
+
+    input {
+      width: 100%;
+      height: 30px;
+      padding: 4px 8px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .login-container {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 10px;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
