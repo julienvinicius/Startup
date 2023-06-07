@@ -10,6 +10,7 @@ export class ChatComponent implements OnInit {
   private socket: any;
   messages: { content: string; timestamp: string }[] = [];
   newMessage: string = '';
+  newMessagesSent: { content: string; timestamp: string }[] = [];
   @ViewChild('scrollContainer') private scrollContainer!: ElementRef<any>;
   users: string[] = [];
   privateMessages: { user: string; message: string }[] = [];
@@ -39,12 +40,8 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     if (this.newMessage.trim() !== '') {
       this.socket.emit('message', this.newMessage);
-      this.messages.push({
-        content: this.newMessage,
-        timestamp: this.getCurrentTimestamp()
-      });
+      this.newMessagesSent.push({ content: this.newMessage, timestamp: this.getCurrentTimestamp() });
       this.newMessage = '';
-      this.scrollChatToBottom();
     }
   }
 

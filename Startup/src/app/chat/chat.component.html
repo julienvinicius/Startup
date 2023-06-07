@@ -1,46 +1,44 @@
 <div class="chat-container">
-    <div class="messages-container" #scrollContainer>
-      <div *ngFor="let message of messages" class="message">
-        <div class="message-content">{{ message.content }}</div>
-        <div class="message-timestamp">{{ message.timestamp }}</div>
-      </div>
-  
-      <!-- Nova div para exibir a mensagem enviada -->
-      <div *ngIf="newMessage" class="message sent-message">
-        <div class="message-content">{{ newMessage }}</div>
-        <div class="message-timestamp">{{ getCurrentTimestamp() }}</div>
-      </div>
+  <div class="messages-container" #scrollContainer>
+    <div *ngFor="let message of messages" class="message">
+      <div class="message-content">{{ message.content }}</div>
+      <div class="message-timestamp">{{ message.timestamp }}</div>
     </div>
-  
-    <div class="input-container">
-      <input
-        [(ngModel)]="newMessage"
-        (keydown.enter)="sendMessage()"
-        (input)="startTyping()"
-        (blur)="stopTyping()"
-        class="message-input"
-        placeholder="Digite uma mensagem..."
-      />
-      <button (click)="sendMessage()" class="send-button">Enviar</button>
+
+    <div *ngFor="let message of newMessagesSent" class="message sent-message">
+      <div class="message-content">{{ message.content }}</div>
+      <div class="message-timestamp">{{ message.timestamp }}</div>
     </div>
-  
-    <div class="typing-users" *ngIf="typingUsers.length > 0">
-      {{ typingUsers.join(', ') }} estão digitando...
-    </div>
-  
-    <div class="users-container">
-      <div *ngFor="let user of users" class="user">
-        {{ user }}
-        <button (click)="sendPrivateMessage(user)" class="private-message-button">Enviar Mensagem Privada</button>
-      </div>
-    </div>
-  
-    <div class="private-messages-container">
-      <div *ngFor="let privateMessage of privateMessages" class="private-message">
-        <span class="private-message-sender">{{ privateMessage.user }}:</span> {{ privateMessage.message }}
-      </div>
-    </div>
-  
-    <button (click)="exitChat()" class="btn-exit">Sair</button>
   </div>
-  
+
+  <div class="input-container">
+    <input
+      [(ngModel)]="newMessage"
+      (keydown.enter)="sendMessage()"
+      (blur)="stopTyping()"
+      (input)="startTyping()"
+      class="message-input"
+      placeholder="Digite uma mensagem..."
+    />
+    <button (click)="sendMessage()" class="send-button">Enviar</button>
+  </div>
+
+  <div class="typing-users" *ngIf="typingUsers.length > 0">
+    {{ typingUsers.join(', ') }} estão digitando...
+  </div>
+
+  <div class="users-container">
+    <div *ngFor="let user of users" class="user">
+      {{ user }}
+      <button (click)="sendPrivateMessage(user)" class="private-message-button">Enviar Mensagem Privada</button>
+    </div>
+  </div>
+
+  <div class="private-messages-container">
+    <div *ngFor="let privateMessage of privateMessages" class="private-message">
+      <span class="private-message-sender">{{ privateMessage.user }}:</span> {{ privateMessage.message }}
+    </div>
+  </div>
+
+  <button (click)="exitChat()" class="btn-exit">Sair</button>
+</div>

@@ -6,19 +6,21 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { ProductGridComponent } from './product-grid/product-grid.component';
 import { LoginComponent } from './nav/login/login.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    ProductGridComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+declarations: [
+AppComponent,
+NavComponent,
+ProductGridComponent,
+LoginComponent,
+ChatComponent // Adicionado o ChatComponent na lista de declarações
+],
+imports: [
+BrowserModule,
+FormsModule
+],
+providers: [],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
